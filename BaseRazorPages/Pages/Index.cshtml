@@ -1,0 +1,12 @@
+﻿@page
+@model BaseRazorPages.Pages.IndexModel
+
+@{
+    Layout = "_Layout";
+}
+
+<h1>Index</h1>
+
+@foreach (var user in Model.Users) {
+    <p2>@user.Name</p2>
+}
