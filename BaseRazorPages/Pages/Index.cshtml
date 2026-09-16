@@ -7,6 +7,10 @@
 
 <h1>Index</h1>
 
-@foreach (var user in Model.Users) {
-    <p2>@user.Name</p2>
+@Model.name
+
+@foreach (var user in Model.Users)
+{
+    <p>Name: @user.Name</p>
+    <p>Age: @user.Password</p>
 }

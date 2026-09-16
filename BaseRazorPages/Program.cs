@@ -16,6 +16,11 @@ namespace BaseRazorPages
             builder.Services.AddSingleton<UserRepository>();   // Num projeto real, user AddScoped
             builder.Services.AddSingleton<UserService>();      // Num projeto real, usar UserScoped
 
+
+            builder.Services.AddSingleton<IngredientRepository>();
+            builder.Services.AddSingleton<IngredientsServices>();
+
+
             var app = builder.Build();
             app.MapRazorPages();
 

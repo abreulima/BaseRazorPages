@@ -8,7 +8,11 @@ namespace BaseRazorPages.Pages
     public class IndexModel : PageModel
     {
         private readonly UserService _userService;
+
         public List<User> Users { get; set; }
+
+        public string name = "Ivan";
+ 
 
         public IndexModel(UserService userService)
         {
