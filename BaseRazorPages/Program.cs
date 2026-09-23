@@ -8,17 +8,21 @@ namespace BaseRazorPages
         public static void Main(string[] args)
         {
             var builder = WebApplication.CreateBuilder(args);
+            
+
+
+            
 
             // Razor Pages
             builder.Services.AddRazorPages();
 
             // Injecao de Dependencia
-            builder.Services.AddSingleton<UserRepository>();   // Num projeto real, user AddScoped
-            builder.Services.AddSingleton<UserService>();      // Num projeto real, usar UserScoped
+            builder.Services.AddScoped<UserRepository>();   // Num projeto real, user AddScoped
+            builder.Services.AddScoped<UserService>();      // Num projeto real, usar UserScoped
 
 
-            builder.Services.AddSingleton<IngredientRepository>();
-            builder.Services.AddSingleton<IngredientsServices>();
+            builder.Services.AddScoped<IngredientRepository>();
+            builder.Services.AddScoped<IngredientsServices>();
 
 
             var app = builder.Build();

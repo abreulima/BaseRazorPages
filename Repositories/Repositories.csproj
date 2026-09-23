@@ -4,7 +4,14 @@
     <TargetFramework>net10.0</TargetFramework>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
+    <UserSecretsId>03cbf311-24a9-40a9-b2bd-87614b1368ce</UserSecretsId>
   </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.Data.SqlClient" Version="7.1.0" />
+    <PackageReference Include="Microsoft.Extensions.Configuration" Version="10.0.12" />
+    <PackageReference Include="Microsoft.Extensions.Configuration.UserSecrets" Version="10.0.12" />
+  </ItemGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\Models\Models.csproj" />
