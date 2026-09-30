@@ -10,9 +10,12 @@ namespace Repositories
 
         public UserRepository()
         {
-            IConfigurationRoot config = new ConfigurationBuilder().AddUserSecrets<UserRepository>().Build();
-            connString = config.GetConnectionString("AmazonSQL");
-            Console.WriteLine(connString);
+            IConfigurationRoot config = new ConfigurationBuilder()
+            .AddUserSecrets<UserRepository>()
+            .Build();
+
+            connString = config["AmazonSQL"];
+
         }
 
         public List<User> GetUsers()
@@ -40,14 +43,13 @@ namespace Repositories
             return users;
         }
 
-        public void AddUser(User user)
+       public void AddUser(User user)
         {
             SqlConnection sqlConnection = new SqlConnection(connString);
-            SqlCommand sqlCommand = new SqlCommand("INSERT INTO Users (name, password, isAdmin) VALUES (@name, @password, @isAdmin)", sqlConnection);
+            SqlCommand sqlCommand = new SqlCommand("INSERT INTO Users (name, password) VALUES (@name, @password)", sqlConnection);
 
             sqlCommand.Parameters.AddWithValue("@name", user.Name);
             sqlCommand.Parameters.AddWithValue("@password", user.Password);
-            sqlCommand.Parameters.AddWithValue("@isAdmin", user.IsAdmin);
 
             sqlConnection.Open();
             sqlCommand.ExecuteNonQuery();

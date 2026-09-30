@@ -1,0 +1,11 @@
+﻿@page
+@model BaseRazorPages.Pages.AddIngredientModel
+@{
+}
+
+
+<form method="post">
+    @Html.AntiForgeryToken()
+    <input placeholder="ingredient" name="name" />
+    <button type="submit">Add User</button>
+</form>

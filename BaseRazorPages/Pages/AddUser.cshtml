@@ -1,14 +1,17 @@
 ﻿@page
 @model BaseRazorPages.Pages.AddUserModel
-
 @{
-    Layout = "_Layout";
 }
 
 
 <form method="post">
     @Html.AntiForgeryToken()
-    <input placeholder="name" name="name"/>
-    <input placeholder="password" type="password" name="password"/>
-    <input type="submit" value="Registar">
+    <input placeholder="name" name="name" />
+    <input placeholder="password" type="password" name="password" />
+    <button type="submit">Add User</button>
 </form>
+
+@if (Model.ErrorMessage != null)
+{
+<p>@Model.ErrorMessage</p>
+}

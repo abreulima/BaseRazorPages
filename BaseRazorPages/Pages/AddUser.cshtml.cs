@@ -1,7 +1,6 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Services;
-
 using Models;
 
 namespace BaseRazorPages.Pages
@@ -9,16 +8,7 @@ namespace BaseRazorPages.Pages
     public class AddUserModel : PageModel
     {
 
-        /*
-        [BindProperty]
-        [Required]
-        public string Name { get; set; }
-
-        [BindProperty]
-        [Required]
-        [MinLength(6)]
-        public string Password { get; set; }
-        */
+        public string? ErrorMessage { get; set; }
 
         private readonly UserService _userService;
 
@@ -26,35 +16,28 @@ namespace BaseRazorPages.Pages
         {
             _userService = userService;
         }
-
         public void OnGet()
         {
+            Console.WriteLine("Ola do Get");
         }
-        
-        /*
-        public void OnPost() 
-        { 
-            
-        }
-        */
-
 
         public IActionResult OnPost(string name, string password)
         {
+            User user = new User();
+            user.Name = name;
+            user.Password = password;
 
-            if (!ModelState.IsValid)
-                return Page();
-
-            _userService.AddUser(new User
+            if (_userService.GetUserByName(name) != null)
             {
-                Id = 0,
-                Name = name,
-                Password = password,
-                IsAdmin = false
-            });
+                ErrorMessage = "Usuario ja existe";
+                return Page();
+            }
 
-            return RedirectToPage("/Index"); // Página atual
+            _userService.AddUser(user);
+
+            return RedirectToPage("/Index");
         }
+
 
     }
 }

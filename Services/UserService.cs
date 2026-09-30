@@ -23,6 +23,20 @@ namespace Services
             _userRepository.AddUser(user);
         }
 
+        public User? GetUserByName(string name)
+        {
+            User? user = null;
+            foreach (var u in _userRepository.GetUsers())
+            {
+                if (u.Name == name)
+                {
+                    user = u;
+                    break;
+                }
+            }
+            return user;
+        }
+
         // Por que User?
         public User? GetUserById(int id)
         {
