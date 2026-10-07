@@ -5,7 +5,14 @@
     Layout = "_Layout";
 }
 
-<h1>Index</h1>
+@if (!string.IsNullOrEmpty(Model.UserName))
+{
+    <p>Bem-vindo, <strong>@Model.UserName</strong>!</p>
+}
+else
+{
+    <p>Utilizador não autenticado.</p>
+}
 
 @foreach (var user in Model.Users)
 {

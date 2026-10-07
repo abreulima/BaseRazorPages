@@ -1,0 +1,10 @@
+﻿@page
+@model BaseRazorPages.Pages.LoginModel
+@{
+}
+<form method="post">
+    @Html.AntiForgeryToken()
+    <input placeholder="Name" name="Name" />
+    <input placeholder="Password" name="Password" type="password" />
+    <button type="submit">Login</button>
+</form>

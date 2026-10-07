@@ -1,0 +1,11 @@
+﻿@page
+@model BaseRazorPages.Pages.ShowDifficultiesModel
+@{
+}
+
+<h1>Difficulties</h1>
+
+@foreach (var difficulty in Model.difficulties)
+{
+    <p>@difficulty.Name</p>
+}

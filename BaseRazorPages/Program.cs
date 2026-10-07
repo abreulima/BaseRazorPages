@@ -10,9 +10,6 @@ namespace BaseRazorPages
             var builder = WebApplication.CreateBuilder(args);
             
 
-
-            
-
             // Razor Pages
             builder.Services.AddRazorPages();
 
@@ -24,8 +21,25 @@ namespace BaseRazorPages
             builder.Services.AddScoped<IngredientRepository>();
             builder.Services.AddScoped<IngredientsServices>();
 
+            builder.Services.AddScoped<DifficulltyRepository>();
+            builder.Services.AddScoped<DifficultyService>();
+
+
+            /* Adicionado */
+            builder.Services.AddDistributedMemoryCache();
+
+            builder.Services.AddSession(options =>
+            {
+                options.IdleTimeout = TimeSpan.FromMinutes(60);
+                options.Cookie.HttpOnly = true;
+                options.Cookie.IsEssential = true;
+            });
+            /* Adicionado */
 
             var app = builder.Build();
+
+            app.UseSession(); // Adiciona
+
             app.MapRazorPages();
 
 

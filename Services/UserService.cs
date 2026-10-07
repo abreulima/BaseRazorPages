@@ -43,5 +43,15 @@ namespace Services
             return _userRepository.GetUsers().FirstOrDefault(user => user.Id == id);
         }
 
+        public User? TryLogin(string name, string password)
+        {
+            User? user = GetUserByName(name);
+            if (user != null && user.Password == password)
+            {
+                return user;
+            }
+            return null;
+        }
+
     }
 }

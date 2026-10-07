@@ -1,0 +1,12 @@
+﻿@page
+@model BaseRazorPages.Pages.AddDifficultyModel
+@{
+}
+
+<h1>Add Difficulty</h1>
+
+<form method="post">
+    @Html.AntiForgeryToken()
+    <input placeholder="Difficulty" name="Name" />
+    <button type="submit">Add Difficulty</button>
+</form>

@@ -12,7 +12,11 @@ namespace BaseRazorPages.Pages
         private readonly UserService _userService;
 
         public List<User> Users;
- 
+
+
+        public string? UserName { get; set; }
+
+
         public IndexModel(UserService userService)
         {
             _userService = userService;
@@ -21,6 +25,7 @@ namespace BaseRazorPages.Pages
         public void OnGet()
         {
             Users = _userService.GetAllUsers();
+            UserName = HttpContext.Session.GetString("UserName");
         }
     }
 }
