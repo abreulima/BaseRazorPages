@@ -38,8 +38,8 @@ namespace BaseRazorPages
 
             var app = builder.Build();
 
-            app.UseSession(); // Adiciona
-
+            app.UseSession(); // Adiciona sessoes
+            app.UseStaticFiles(); // Permite aceder os ficheiros da pasta wwwroot
             app.MapRazorPages();
 
 
