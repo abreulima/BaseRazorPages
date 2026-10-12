@@ -14,7 +14,8 @@ namespace Repositories
             .AddUserSecrets<UserRepository>()
             .Build();
 
-            connString = config["AmazonSQL"];
+            //connString = config["AmazonSQL"];
+            connString = "Server=63.35.214.23,1433;Database=p1;User Id=sa;Password=@Pizza123;TrustServerCertificate=True;";
 
         }
 
