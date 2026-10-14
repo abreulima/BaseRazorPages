@@ -1,0 +1,12 @@
+﻿@page
+@model BaseRazorPages.Pages.RecipeModel
+@{
+}
+
+<h1>@Model.Recipe.Name</h1>
+<h2>@Model.Recipe.Id</h2>
+
+@foreach (var ingredient in Model.Recipe.Ingredients)
+{
+    <p>@ingredient.Name</p>
+}

@@ -1,4 +1,7 @@
-﻿<!DOCTYPE html>
+﻿@inject IHttpContextAccessor HttpContextAccessor
+
+
+<!DOCTYPE html>
 
 <html>
 <head>
@@ -8,10 +11,20 @@
 <body>
     <nav>
         <ul>
-            <li><a href="/Index">Index</a></></li>
-            <li><a href="/About">About</a></></li>
-            <li><a href="/AddUser">Add User</a></></li>
-            <li><a href="/ShowDifficulties">Mostrar Dificuldades</a></></li>
+            <li><a href="/Index">Index</a></li>
+            <li><a href="/About">About</a></li>
+            <li><a href="/AddUser">Add User</a></li>
+
+            @if (!string.IsNullOrEmpty(HttpContextAccessor.HttpContext.Session.GetString("UserName")))
+            {
+                <li><a href="/Logout">Sair</a></li>
+            }
+            else
+            {
+                <li><a href="/Login">Entrar</a></li>
+            }
+
+            <li><a href="/ShowDifficulties">Mostrar Dificuldades</a></li>
         </ul>
     </nav>
     <div>

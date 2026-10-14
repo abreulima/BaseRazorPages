@@ -8,3 +8,10 @@
     <input placeholder="Password" name="Password" type="password" />
     <button type="submit">Login</button>
 </form>
+
+
+@if (Model.ErrorMessage != null)
+{
+    <div class="error">@Model.ErrorMessage</div>
+}
+)

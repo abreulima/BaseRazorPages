@@ -24,6 +24,11 @@ namespace BaseRazorPages
             builder.Services.AddScoped<DifficulltyRepository>();
             builder.Services.AddScoped<DifficultyService>();
 
+            builder.Services.AddScoped<RecipeRepository>();
+            builder.Services.AddScoped<RecipeService>();
+
+            builder.Services.AddHttpContextAccessor();
+
 
             /* Adicionado */
             builder.Services.AddDistributedMemoryCache();

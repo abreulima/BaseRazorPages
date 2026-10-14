@@ -5,10 +5,12 @@ namespace BaseRazorPages.Pages
 {
     public class LogoutModel : PageModel
     {
-        public void OnGet()
+        public IActionResult OnGet()
         {
 
             HttpContext.Session.Remove("UserName");
+
+            return RedirectToPage("/Index");
         }
     }
 }

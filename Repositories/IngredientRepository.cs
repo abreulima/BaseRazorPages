@@ -18,8 +18,8 @@ namespace Repositories
             .AddUserSecrets<UserRepository>()
             .Build();
 
-            //connString = config["AmazonSQL"];
-            connString = "Server=63.35.214.23,1433;Database=p1;User Id=sa;Password=@Pizza123;TrustServerCertificate=True;";
+            connString = config["AmazonSQL"];
+            //connString = "Server=63.35.214.23,1433;Database=p1;User Id=sa;Password=@Pizza123;TrustServerCertificate=True;";
 
         }
 
@@ -44,10 +44,21 @@ namespace Repositories
                 ingredients.Add(ingredient);
             }
 
+
+            sqlCommand = new SqlCommand("SELECT id, name FROM Ingredients", sqlConnection);
+
+
             sqlConnection.Close();
+
             return ingredients;
 
         }
+
+
+      
+
+
+
 
         public void AddIngredient(Ingredient ingredient)
         {

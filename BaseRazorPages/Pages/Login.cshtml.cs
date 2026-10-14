@@ -2,16 +2,20 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Services;
 using Models;
+using System.ComponentModel.DataAnnotations;
 
 namespace BaseRazorPages.Pages
 {
     public class LoginModel : PageModel
     {
         [BindProperty]
+        [Required]
         public string Name { get; set; }
         [BindProperty]
+        [Required]
         public string Password { get; set; }
 
+        public string ErrorMessage { get; set; }
 
         private readonly UserService _userService;
 
@@ -36,6 +40,7 @@ namespace BaseRazorPages.Pages
 
             if (user == null)
             {
+                ErrorMessage = "Invalid username or password.";
                 return (Page());
             }
             else
