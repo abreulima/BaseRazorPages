@@ -44,7 +44,8 @@ namespace Repositories
             Recipe recipe = new Recipe();
             recipe.Id = reader.GetInt32(0);
             recipe.Name = reader.GetString(1);
-
+            recipe.Id = reader.GetInt32(0);
+            recipe.Name = reader.GetString(1);
             //recipe.Id = reader.GetInt32(0);
             //recipe.Name = reader.GetString(1);
 
